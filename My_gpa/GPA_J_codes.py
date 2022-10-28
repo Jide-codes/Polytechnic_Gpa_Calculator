@@ -4,6 +4,7 @@ quality_point = []
 total_course_unit = []
 
 
+# THIS FIND STANDARD GP WILL TAKE IN THE USERCORE AND ASSIGN A STANDARD GP TO IT 
 
 def find_standard_gp(user_score):
 
@@ -16,14 +17,14 @@ def find_standard_gp(user_score):
         
     elif user_score <= 75 and user_score >= 70:
         return standard_grade_point['AB']
-       
+
 
     elif user_score <= 69 and user_score >= 65:
         return standard_grade_point['B']
         
 
     elif user_score <= 64 and user_score >= 60:
-       return standard_grade_point['BC']
+        return standard_grade_point['BC']
         
 
     elif user_score <= 59 and user_score >= 55:
@@ -39,13 +40,18 @@ def find_standard_gp(user_score):
         
 
     elif user_score <= 44 and user_score >= 40:
-         return standard_grade_point['E']
+        return standard_grade_point['E']
         
 
     else:
         return standard_grade_point['F']
 
 
+
+# THE WHILE LOOP HERE GET THE COURSE SCORE AND THE UNIT OF THE COURSE FROM THE USER AND APPEND IT TO DIFFERENT LIST
+# COURSE SCORE AND COURSE UNIT
+# BUT THERE IS A LOGIC THERE, THE LOGIC THERE IS THAT SYSTEM IS NOT ONLY GETTING THE COURSE SCORE
+# IT GETS THE SCORE, ASSIGN A STANDARD GP AND THEN APPEND IT TO A LIST
 
 init_count = 1
 total_number_of_course = int(input('Enter total number of course: '))
@@ -60,9 +66,10 @@ while init_count <= total_number_of_course:
     init_count+=1
 
 
-    
 
-
+# THIS GET QUALITY POINT FUNCTION WILL TAKE IN THE APPENDED STANDARD GP AND ALSO THE APPENDED COURSE UNIT
+# THEN MULTIPLY EVERY SINGLE ITEM IN THE APPENDED COURSE UNIT WITH EVERY SINGLE ITEM IN THE APPENDED GP
+# AND THAT WILL RETURN TO US OUR QUALITY POINT
 
 def get_quality_point(appended_score_point, appended_course_unit):
 
@@ -72,6 +79,7 @@ def get_quality_point(appended_score_point, appended_course_unit):
 quality_point = get_quality_point(score, course_unit)
 
 
+# GET_TOTAL_COURSE_UNIT FUNCTION GET THE APPENDED COURSE UNIT LIST THEN SUM IT UP AND RETURN THE TOTAL COURSE UNIT
 
 def get_total_course_unit(total_course_units):
     total_course_unit = sum(total_course_units)
@@ -79,8 +87,11 @@ def get_total_course_unit(total_course_units):
 total_course_unit = get_total_course_unit(course_unit)
 
 
-def gpa_calculator(quality_point, total_course_point):
-    gpa = quality_point / total_course_point
+# THE FINAL STEP IS THE GPA_CALCULATOR IT SELF, THIS FUNCTION GET THE QUALITY POINT AND THE TOTAL COURSE UNIT
+# THE DIVIDE QUALITY POINT BY TOTAL COURSE UNI TO PROVIDE THE GPA
+
+def gpa_calculator(quality_point, total_course_unit):
+    gpa = quality_point / total_course_unit
     my_gpa = round(gpa, 2)
     return my_gpa
 my_gpa = gpa_calculator(quality_point, total_course_unit)
